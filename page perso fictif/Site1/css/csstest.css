@@ -1,0 +1,670 @@
+*, ::before, ::after {                      /*on selectionne tout */
+    box-sizing: border-box;     /*simplifie le dimensionnement des élément*/
+    margin:0;                       /*on enléve tout les marge etc */
+    padding:0;
+    cursor: none;       /*on fait dispaître le curseur*/
+    box-sizing: border-box;
+    
+}
+
+body {
+    overflow-x: hidden;     /*on cahe la scroll bar horizontale*/
+    color:white; /*le texte sera en blanc*/
+    font-family: 'Courier New', Courier, monospace;
+	max-width: 100%;
+	background-color: black;
+	height: 100vh; /* on dit au body d'ocuper 100% de l'ecran visible ceci nous permet de faire disparaître ensuite le curseur de toute la page*/
+    background-image: url(../image/gback.jpg); /*je met une image de fond*/
+    background-attachment: fixed;
+    background-repeat: no-repeat; /* je l'empêche de se répéter*/
+    background-position: center; /* je la centre*/
+    background-size: cover;
+    max-height: 100vh; /*elle ne pas faire plus que l'écran*/
+    
+    
+    
+}
+
+p {
+    font-size: 20px;
+    
+    
+}
+footer {
+    
+    height: auto;
+    bottom: 0px;
+    /*width: 200vh;*/
+    background-color: #000000;
+    border-top: 1px dashed white;
+    position: abs;
+}
+
+
+
+.credit {
+
+    padding-left: 20vh;
+
+}
+
+
+.void {
+    min-height: 40vh;
+    /* le void occupera 40% de l'ecran*/
+}
+.case {
+    text-align: center;
+}
+
+div .img {
+    margin:2%;
+    max-width:40%;      /* je formate les images gallerie.html*/
+    border: 2px solid black;
+}
+
+div .imgl {
+    margin:2%;
+    max-width:40%;      /*je formate les image se trouvant à droite */  
+    border: .2vh solid black;
+}
+
+.front {    /* je formate le contenu*/
+    background: rgba(58, 58, 58, 0.95); /*grâce a rgb je peux donner de la transparence à mon fond*/
+    max-width: 125vh;
+    margin: 0 auto; /* je centre lla div*/
+    height:auto;
+    border-radius: 5px; /*j'arrondie les bord*/
+    
+}
+
+.front h1 {     /* je formate les h1 se trouvant dans .front*/
+    color: crimson;
+    text-align: center;
+    font-size: 3vh;
+}
+
+.cursor {
+    width: 40px;/* on définit la zone du curseur personalisé*/
+    height: 40px;
+    border: .2vh dashed rgb(255, 255, 255); /*on lui créé une borure en pointillé*/
+    border-radius: 50%; /* le radius permet a la bordure de devenir un cercle*/
+    position: absolute;
+    
+    pointer-events: none; /* sans ce code on ne pouurait pas selectionner le texte, copier coller etc*/
+    z-index:23; /* je place la div devant tout les élément en dessous de 23*/
+}
+
+.cursor::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);				/* ici on crée le point au millieu du curseur*/
+    width: 5px;
+    height: 5px;
+    background: crimson; 
+    border-radius: 50%;
+}
+
+.default {
+    animation: Anim1 1s infinite alternate; /* ici on dit que anim1 se repete a l'infini et que une fois l'animation achevé elle fait le chemin inverse et elle dure 1s*/
+}
+
+.focus {
+    animation: anim3 1s infinite alternate ;
+
+}
+
+.expand {
+    animation: Anim2 .5s; /* ici on dit que l'animation 2 dure 0.5 s */
+    background: crimson;     
+    border: .2vh solid crimson; /* on crée une nouvelle qui viendra passer au dessus des autres*/
+}
+@keyframes Anim1 {
+    from {
+        transform: scale(1) rotate(0deg);  /*l'animation commence avec la taille de base ainsi que l'orientation par default*/
+    }
+    to {
+        transform: scale(0.7) rotate(90deg);  /*au bout des 1s la bordure aura touné de 90deg  et se sera a 0.7x sa taille d'origine*/
+    }
+}
+
+@keyframes Anim2 {
+    0%{							/* à 0% de l'animation*/
+        transform: scale(1);		/*scale 1 = sa taille d'origine*/
+    }
+    50%{						/* à 50% de l'animation*/
+        transform: scale(2);		/*la bordure aura atteint 2x sa taille*/
+    }
+    100%{						/* à la fin de l'animation */
+        transform: scale(1);		/*la bordure retrouve sa taille d'origine et devient transparente*/
+        opacity:0;
+    }
+}
+
+@keyframes anim3 {      /*je créé une 3eme animation*/
+
+0% {
+    transform: scale(1) rotate(0deg);
+
+}
+50% {
+    transform: scale(0.5) rotate(180deg)
+}
+100%
+{
+   transform: scale(0.5) rotate(360deg); 
+}
+}
+
+.container-corner {     /*le container corner se trouve en haut a droite et suivra le déroulement de la page*/
+    position: fixed;
+    right: 5vh;
+    top: 5vh;
+    
+}
+.btn-circle {
+    background: rgb(0, 0, 0);
+    display: block;
+    width: 10vh;
+    height: 10vh;
+    border-radius: 50%;
+    position: relative;
+    z-index: 20;                /*on créé le bouton du menu*/
+    outline: none;
+    cursor: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: .2vh solid #fff;
+    
+}
+
+.line {
+    width: 50%;
+    height: .3vh;
+    background: crimson;        /*je créé les ligne qui sont dans le menu*/
+    transition:                 /*je leur rajoute une animation*/
+    transform 0.2s ease,
+    opacity 0.2s ease,
+    top 0.2s ease 0.2s;
+    position: relative;
+}
+.line:nth-child(1){     /* les childs sont les enfant donc les même que .line mais a des endroit différent*/
+    top: -1vh;
+}
+.line:nth-child(3){
+    top: 1vh;
+}
+
+.btn-circle.menu-anim .line:nth-child(1){
+    top: .5vh;
+    transform: rotate(45deg);           /* le child 1 va monter puis tourner de 45deg*/
+    transition: 
+    top 0.2s ease,
+    transform 0.2s ease 0.2s;
+}
+
+.btn-circle.menu-anim .line:nth-child(2){
+    opacity: 0;                         /* lui va disparaître*/
+    transition: opacity 0.2s ease;
+}
+
+.btn-circle.menu-anim .line:nth-child(3){
+    top: 0vh;
+    transform: rotate(-45deg);
+    transition:                      /* le child  va descendre puis tourner de 45deg*/
+    top 0.2s ease,
+    transform 0.2s ease 0.2s;
+}
+
+
+.circle-menu {
+    background: #070707;
+    width: 50vh;
+    height: 50vh;
+    border-radius: 50%;
+    border: 8vh solid rgba(255,255,255,0.239);   /* je créé le circle menu*/
+    position: absolute;
+    z-index: 20;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.4s ease 0.5s; /* je rajoute une transition*/
+}
+
+.circle-menu.circle-anim {
+    transition: transform 0.4s ease 0.4s;           
+    transform: translate(-50%, -50%) scale(1);/*je fais appraître le menu*/
+}
+
+.links-circle {
+    border-radius: 50%;
+    width: 10vh;
+    height: 10vh;
+    position: absolute;         /* je créé tout les case pour les link*/
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.links-circle img {
+    width: 10vh;        /*je formate les image des link et ajoute une transition*/
+    transition: transform 0.2s ease;
+}
+
+.links-circle img:hover {
+    transform: scale(1.2);  /*quand on passe sur l'image elle devient 1.2* plus grosse*/
+}
+
+.links-circle:nth-child(1){         /*je positionne tout les link et leur donne des animations diférée*/
+    left: 0%;
+    transition: transform 0.2s ease 0.4s;
+}
+.links-circle:nth-child(2){
+    left: 15%;
+    top: 85%;
+    transition: transform 0.2s ease 0.2s;
+}
+.links-circle:nth-child(3){
+    top: 100%;
+    transition: transform 0.2s ease;
+}
+
+
+.circle-menu.circle-anim .links-circle:nth-child(1){
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 0.2s ease 0.7s;
+}
+.circle-menu.circle-anim .links-circle:nth-child(2){
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 0.2s ease 0.9s;
+}
+.circle-menu.circle-anim .links-circle:nth-child(3){
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 0.2s ease 1.1s;
+}
+
+
+.home_button {
+
+    background: rgb(0, 0, 0);
+    display: block;
+    width: 10vh;
+    height: 10vh;
+    border-radius: 50%;
+    position: fixed;            /* je créé le bouton home*/
+    z-index: 15;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #fff;
+    left: 6vh;     /*je le place dans le coin supérieur gauche*/
+    top: 6vh;
+    transition: transform 0.2s ease  ;
+}
+
+.icone img {
+    width: 5.5vh; /*je donne à l'image une taille de 50px*/
+    
+}
+
+.home_button:hover {
+    transform:  scale(1.1);
+    transition: transform 0.2s ease  ; /* je fais une transition le bouton home devient 1.2* plus grand quand on passe dessus*/
+}
+
+.contenu  {
+    
+    border-top: .2vh crimson dashed;        /* la bordure supérieur de contenu sera rouge et en pointillé*/
+}
+
+.front .contenu .text {
+    width: 60vh;
+    height: 50%;        /*mise en forme du texte pour story.html*/
+    display: inline-block;
+    
+}
+
+
+.front .contenu .text-main {
+    border-left: .2vh solid crimson;     /*mise en forme du texte pour story.html*/
+     
+}
+
+.front .contenu p {
+    font-size: 2vh;
+    padding: 5%;            /*mise en forme du texte pour story.html*/
+}
+
+.front .contenu .text-bottom {
+    border-top: .2vh solid crimson;      /*mise en forme du texte pour story.html*/
+    display: inline-block;
+}
+
+.front .contenu .text-bottom .circle {
+    width: 20vh;
+    height: 20vh;
+    background: url(../image/tenor.gif);        /* je donne un fond à la div circle*/
+    background-size: 100% 100%;
+    border-radius: 50%;
+    shape-outside: circle();    /*shape outside permet au texte d'épouser les fore de l'image*/
+    float: left;    /*float permet à l'image de s'insérer dans le texte*/
+    margin: 5vh;
+    border: .2vh solid white;
+
+    
+}
+
+.wall {
+    margin: 0 auto;
+    background: url(../image/campfire.jpg);
+    background-size: 100% 100%;     /* je met une image pour la div wall*/
+    width: 100vh;
+    height: 50vh;
+    border:.2vh solid white;
+    max-width: 100%;
+    max-height: 100%;
+}
+        /*mise en page de cv.html*/
+.pic {
+    margin: 0 auto;
+    background: url(../image/ah.jpg);       /*en css on doit prendre l'image par rapport au dossier css*/
+    background-size: 100% 100%;
+    height: 50vh;
+    width: 55vh;                           /*je formate l'image*/
+    border-radius: 5px;
+    border: .2vh solid white;
+}
+
+.descrip  {
+    border: .2vh crimson dashed;
+    border-radius: 5px;
+    margin: 5vh;
+    background: rgb(36, 37,38);
+    
+}
+
+.descrip p {
+    text-align: center;
+    /* je centre le texte de la div descrip*/
+   
+}
+
+.p {                                                                    /* pour chaque div p,p1 etc je leur donne une image différente ainsi qu'une transition entre hover et la forme originelle*/
+    
+    background: url(../image/goblin-slayer-vs-goblins.gif); 
+    opacity:0;                          /* le fond et transparent puis avec la transition sur hover le fond devient visiible*/
+    transition: opacity 1s ;
+    transition-delay: 1s;               /* quand on sort du hover la trasnition se déclenche aprés 1s*/
+}
+
+.p:hover {
+    opacity:1;
+    transition: opacity 1s ;
+    
+}
+
+
+
+.p1 {
+    opacity: 0;
+    background-size: auto 200%;
+    background-position: right;
+    transition: opacity 1s;
+    transition-delay: 1s;
+    background: url(../image/para.gif);
+}
+
+.p1:hover {
+    
+    background: url(../image/para.gif);
+    transition: opacity 1s;
+    opacity:1;
+}
+.p2 {
+    opacity: 0;
+    transition: opacity 1s ;
+    background: url(../image/back1.gif);
+    background-size: auto 200%;
+    transition-delay: 1s;
+    
+}
+.p2:hover {
+    transition: opacity 1s ;
+    opacity:1;
+}
+
+.p3 {
+    background: url(../image/massue.gif);
+    background-size: auto 200%;
+    background-position: right;
+    transition: opacity 1s ;
+    opacity:0;
+    transition-delay: 1s;
+    
+}
+.p3:hover {
+    transition: opacity 1s ;
+    opacity:1;
+}
+.p4 {
+    background: url(../image/aa.gif);
+    background-size: auto 100%;
+    background-position: center;
+    transition: opacity 1s ;
+    opacity:0;
+    transition-delay: 1s;
+   
+   
+}
+
+.p4:hover {
+    transition: opacity 1s ;
+    opacity:1;
+}
+.p5 {
+    background: url(../image/g.gif);
+    background-size: auto 150%;
+    background-position: center;
+    transition: opacity 1s ;
+    opacity:0;
+    transition-delay: 1s;
+}
+.p5:hover {
+    transition: opacity 1s ;
+    opacity:1;
+}
+.p6 {
+    background: url(../image/fight.gif);
+    background-size: auto 150%;
+    background-position: center;
+    transition: opacity 1s ;
+    opacity:0;
+    transition-delay: 1s;
+}
+
+.p6:hover {
+    transition: opacity 1s ;
+    opacity:1;
+}
+
+
+.divtext {
+    border-bottom: 1px dashed crimson;      /* je donne une bordure rouge en bas de la div divtext*/
+}
+
+.play_pause_button   {
+    background: rgb(0, 0, 0);
+    display: block;
+    width: 10vh;
+    height: 10vh;
+    border-radius: 50%;
+    position: fixed;            /* je créé le bouton home*/
+    z-index: 15;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: .2vh solid #fff;
+    left: 6vh;     /*je le place dans le coin supérieur gauche*/
+    top: 20vh;
+    transition: transform 0.2s ease  ;
+
+}
+.play_pause_button img {
+    width: 6.5vh;
+    height: 6.5vh;
+
+}
+.play_pause_button:hover {
+    transform: scale(1.2);
+}
+    
+
+.music {
+	position: relative;
+	
+	background: linear-gradient(0deg, #000, #272727);
+}
+
+.music:before, .music:after {
+	content: '';
+	position: absolute;
+	left: -2px;
+	top: -2px;
+	background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000, #fb0094, 
+		#0000ff, #00ff00,#ffff00, #ff0000);
+	background-size: 400%;
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+	z-index: -1;
+    animation: steam 20s linear infinite;
+    border-radius: 5px;
+    
+}
+
+@keyframes steam {
+	0% {
+		background-position: 0 0;
+	}
+	50% {
+		background-position: 400% 0;
+	}
+	100% {
+		background-position: 0 0;
+	}
+}
+
+.music:after {
+	filter: blur(50px);
+}
+
+
+.music1 {
+	position: relative;
+    
+	
+}
+
+.music1:before, .music1:after {
+	content: '';
+	position: absolute;
+	left: -2px;
+	top: -2px;
+	background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000, #fb0094, 
+		#0000ff, #00ff00,#ffff00, #ff0000);
+	background-size: 400%;
+	width: calc(10% + 4px);
+	height: calc(10% + 4px);
+	z-index: -1;
+    animation: steam1 20s linear infinite;
+    border-radius: 50%;
+    top:50%;
+    left: 50%;
+    
+}
+
+@keyframes steam1 {
+	0% {
+		background-position: 0 0;
+	}
+	50% {
+		background-position: 400% 0;
+	}
+	100% {
+		background-position: 0 0;
+	}
+}
+
+.music1:after {
+	filter: blur(50px);
+}
+
+
+.video {
+    text-align: center;
+    color: crimson;
+    margin: 20px;
+    
+}
+
+
+
+.video::before {
+    content: '⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️ contient des images qui peuvent choquer';
+    height: 70px;
+    width: 200px;
+    display: block;
+    background: black;
+    float: left;
+    position: absolute;
+    border: .2vh solid crimson;
+    border-radius: 5px;
+    
+    
+    
+}
+
+.video video {
+    border: .2vh solid crimson;
+    border-radius: 5px;
+    height: 360px;
+    width: 640px;
+    max-width: 100%;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.space {
+    height: 50px;
+}
+
+.case1 {
+    border-bottom: .2vh dashed crimson;
+}
+
+video {
+    height: 360px;
+    width: 640px;
+    max-width: 100%;
+}
+
+iframe {
+    border:.2vh solid crimson;
+    border-radius: 5px;
+    max-width: 100%;
+    
+}
+
+

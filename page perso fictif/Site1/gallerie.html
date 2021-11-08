@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <link type="text/css" href="css/csstest.css" rel="stylesheet"> <!--on fait le lien avec la feuille de style-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" type="image/x-icon" href="image/icone/livre.svg" /> <!--je mets une image a l'entête de ma page-->
+        <title>Gallerie</title>
+    </head>
+    <body>
+        <div class="cursor default"></div> <!-- ici c'est la div lier aux code css et js elle suivra la souris dans ses mouvements dans la page-->
+        <audio id="audiotag1" src="son/goblin-slayer-ost-maintheme.mp3" preload="auto"></audio>
+        <audio id="pop" src="son/zapsplat_cartoon_pop_mouth_014_46677.mp3" preload="auto"></audio>
+		<audio id="pop1" src="son/zapsplat_cartoon_pop_mouth_015_46678.mp3" preload="auto"></audio>
+        <a href="javascript:play_single_sound();"><div class="play_pause_button"><img src="image/icone/pause.svg" alt=""></div></a>
+    
+         <!--je créé la div pour mon menu-->
+        <div class="container-corner"> 
+            <div class="circle-menu">       <!--chaque lien sera une image cliquable-->
+                <a href="skills.html" class="links-circle">
+                    <img src="image/icone/epees.svg">
+                </a>
+                <a href="cv.html" class="links-circle">
+                    <img src="image/icone/casque-romain.svg">
+                </a>
+                <a href="story.html" class="links-circle">
+                    <img src="image/icone/feu-de-camp.svg">
+                </a>
+            
+            
+            </div>  <!--ici on créé les ligne du menu-->
+            <a><div class="btn-circle">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div></a>
+            <!--je créé une div pour un bouton retour à index.html-->
+        </div>
+            <a class="icone" href="index.html"><div class="home_button">
+            <img src="image/icone/home.svg" alt="home"> </a>
+
+        </div>
+
+        <br>
+        <div class="front">
+        <br>
+            <h1>Gallerie</h1>
+            <div class="contenu">
+            <div class="case">  <!--chaque case contiendra deux image pour organiser la page-->
+            
+                <img class="img" src="image\back.png" >
+                <img class="imgl" src="image/para.gif" >
+            </div>
+            <div class="case">
+                <img class="img" src="image\tenor.gif" >
+                <img class="imgl" src="image/goblinslayer.jpg" >
+            </div>
+            <div class="case">
+                <img class="img" src="image\iconeg.png" >
+                <img class="imgl" src="image/g.gif" >
+            </div>
+            <div class="case">
+                <img class="img" src="image/wallpaperflare.com_wallpaper.jpg" >
+                <img class="imgl" src="image/campfire.jpg" >
+            </div>
+        </div>
+
+        <div class="void"></div> <!--le void pour laisser du vide-->
+
+        </div>
+
+        <footer >       <!--je créé le ppied de page-->
+        
+                <p class="credit">sources:</p>
+                <div class="credit ">       <!--je fais la liste des source-->
+                    <li><a href="https://www.pinterest.fr/">Pinterest</a></li>
+                </div>
+                <div class="credit">
+                    <li><a href="https://www.google.com/search?q=goblin+slayer&rlz=1C1CHBF_frFR883FR883&sxsrf=ALeKk03_2-skSUb7aCLmoRoj-6-dUmskaw:1610836251143&source=lnms&tbm=isch&sa=X&ved=2ahUKEwigpKnUwKHuAhVrzoUKHcpiCH0Q_AUoAXoECA4QAw">google image</a></li>
+                </div>
+            
+            </footer>
+
+
+            <script src="js/gallerie.js"></script>
+    </body>
+</html>
+
+
+
+

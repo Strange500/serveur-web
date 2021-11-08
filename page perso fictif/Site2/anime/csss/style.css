@@ -1,0 +1,160 @@
+* {
+    
+    margin: 0;
+    padding: 0;
+    color: white;
+   overflow:hidden
+}
+a {
+    text-decoration: none;
+}
+body {
+    background-color: rgb(0, 0, 0);
+}
+header{
+    background-color: rgb(0, 0, 0);
+    z-index: 3;
+    position: fixed;
+    top: 0;
+    height: 6.75vh;
+    width: 100%;
+    border-bottom: solid white .3vh;
+}
+
+header h3 {
+    margin-left: 1.5vh;
+    margin-top: 1.5vh;
+    font-size: 2vh;
+    
+}
+header h5 {
+    margin-left: 1.5vh;
+    font-size: 1vh;
+}
+
+.season {
+    background-color: rgb(0, 0, 0);
+    
+    flex-flow: row wrap;
+    height: 200vh;
+    width: 100%;
+    border-left: solid white 0.3vh;
+    margin-left: 20.5vh;
+    text-align: center;
+    
+    
+    
+}
+
+.season h2 {
+    margin-top: 2vh;
+}
+
+.void {
+
+    height: 6vh;
+}
+.icon {
+    position: absolute;
+    background-size: cover;
+    border: solid grey 1px;
+    border-radius: 10px;
+    width:187.5px;
+    height:280px;
+    transition: transform  0.2s ease  ;
+    
+}
+.icon:hover {
+    transform: scale(1.03);
+    border: solid crimson 2px;
+    
+}
+
+
+.para {
+    
+    background-image: url(../img/sao/back.jpg);
+    opacity: 0.2;
+    height: 100vh;
+    background-attachment: fixed;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-size: 177.5vh 93.55vh ;
+    max-width: 100%;
+       }
+      
+.btn_container {
+    width:200vh ;
+    height: 100vh;
+    background-color: transparent;
+    position: absolute;
+    top: 65px;
+    left: 20.5vh;
+}
+
+.title {
+    position: absolute;
+    top: 755px;
+}
+.title:hover {
+    text-decoration: underline;
+}
+.zero {
+    top: 455px;
+    left: 100px;
+    background-image: url(../img/sao/S1.jpg);
+}
+
+.z {
+    
+    
+    left: 160px;
+}
+
+
+.one {
+    top: 455px;
+    left: 424px;
+    background-image: url(../img/sao/S2.jpg);
+}
+
+.o {
+    
+   
+   left: 484px;
+}
+
+.two {
+    top: 455px;
+    left: 748px;
+    background-image: url(../img/sao/S3.jpg);
+}
+
+.t {
+    left:808px ;
+}
+
+.three {
+    top: 455px;
+    left: 1072px;
+    background-image: url(../img/sao/S4.jpg);
+}
+
+.th {
+    left: 1132px;
+}
+.four {
+    top: 455px;
+    left: 1396px;
+    background-image: url(../img/sao/S5.jpg);
+}
+
+.f {
+    left: 1426px;
+}
+
+.titt {
+    position: absolute;
+    top: 200px;
+    left: 700px;
+}

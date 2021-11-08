@@ -1,0 +1,1284 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    cursor: none; /*on fait disparaître  le curseur*/
+}
+
+body {
+    overflow-x: hidden; /*j'empeche le défillment sur le côté*/
+    color:white;
+    font-family: 'Courier New', Courier, monospace;
+	max-width: 100%;
+	background-color: black;
+	height: 90vh; /* on dit au body d'occuper 100% de l'écran visible ceci nous permet de faire disparaître ensuite le curseur de toute la page*/
+    background: url(../image/gback.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    max-height: 100%;
+
+	
+}
+
+
+
+
+
+.front {
+    background: rgba(58, 58, 58, 0.95); /*le 0.95 sert pour l'opcité*/
+    width: 125vh;
+    margin: 0 auto;  /*je centre la div*/
+    height:auto;
+    cursor: none;
+    border-radius: 5px;
+    position: relative;
+    
+}
+
+
+
+.img {
+    border: 2px solid black;
+    max-width:100%;
+    clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%); /*clippath permet de donner une forme à une image*/
+    background-image: url(../image/wallpaperflare.com_wallpaper.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 40vh;
+    width: 70vh;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.logo {
+    
+    
+    background-image: url(../image/Goblin_Slayer_Logo.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 15vh;
+    width: 50vh;
+    margin: 0 auto;
+    
+}
+.top {
+    text-align:center;
+   
+}
+
+
+.cursor {
+    width: 3.5vh;/* on définit la zone du curseur personalisé*/
+    height: 3.5vh;
+    border: .2vh dashed rgb(255, 255, 255); /*on lui créé une bordure en pointillé*/
+    border-radius: 50%; /* le radius permet a la bordure de devenir un cercle*/
+    position: absolute;
+    
+    pointer-events: none; /* sans ce code on ne pourrait pas selectionner le texte, copier coller etc*/
+    z-index:23;
+}
+
+.cursor::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);				/* ici on crée le point au millieu du curseur*/
+    width: 5px;
+    height: 5px;
+    background: crimson; 
+    border-radius: 50%;
+}
+
+.cursor .detect {
+    content:"";
+    height:15vh;
+    width:15vh;
+    background:transparent;
+    position:absolute;
+    border-radius:50%;
+    top:-195%;
+    left:-195%;
+    z-index:-1;
+  }
+
+.default {
+    animation: Anim1 1s infinite alternate; /* ici on dit que anim1 se repete a l'infini et que une fois l'animation achevé elle fait le chemin inverse et elle dure 1s*/
+}
+
+.focus {
+    animation: anim3 1s infinite alternate ;
+
+}
+
+.expand {
+    animation: Anim2 .5s; /* ici on dit que l'animation 2 dure 0.5 s */
+    background: crimson;     
+    border: .2vh solid crimson; /* on crée une nouvelle qui viendra passer au dessus des autres*/
+}
+@keyframes Anim1 {
+    from {
+        transform: scale(1) rotate(0deg);  /*l'animation commence avec la taille de base ainsi que l'orientation par default*/
+    }
+    to {
+        transform: scale(0.7) rotate(90deg);  /*au bout des 1s la bordure aura touné de 90deg  et se sera a 0.7x sa taille d'origine*/
+    }
+}
+
+@keyframes Anim2 {
+    0%{							/* à 0% de l'animation*/
+        transform: scale(1);		/*scale 1 = sa taille d'origine*/
+    }
+    50%{						/* à 50% de l'animation*/
+        transform: scale(2);		/*la bordure aura atteint 2x sa taille*/
+    }
+    100%{						/* à la fin de l'animation */
+        transform: scale(1);		/*la bordure retrouve sa taille d'origine et devient transparente*/
+        opacity:0;
+    }
+}
+
+@keyframes anim3 {
+
+0% {
+    transform: scale(1) rotate(0deg);
+
+}
+50% {
+    transform: scale(0.5) rotate(180deg)
+}
+100%
+{
+   transform: scale(0.5) rotate(360deg); 
+}
+}
+
+
+
+
+.container-menu {
+    width: 35vh;               /* je formate la div contaçiner menu*/
+    height: 35vh;
+    position: relative;         /*il restera à sa place quoi qu'il arrive*/
+    bottom: 100%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    
+    
+}
+.btn-menu {
+    width: 15vh;
+    height: 15vh;
+    border-radius: 50%;          /* je formate la div btn-menu*/
+    background: rgb(0, 0, 0);
+    position: absolute;      /*il restera à sa place quoi qu'il arrive*/
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 20;
+    border: .2vh solid white;
+    
+}
+
+.ligne {
+    width: 10vh;
+    height: .5vh;
+    border-radius: 5px;
+    background: crimson;        /*je créé les ligne du menu et leurs donnent une transition*/
+    position: absolute;
+    top: 50%;
+    left: 50%;      /*je centre la ligne*/
+    transform: translate(-50%,-50%);
+    transition: all 0.5s ease-in-out;
+    
+}
+.ligne::before {
+    content: '';
+    position: absolute;
+    bottom: 2vh; /*je place la ligne en bas*/
+    background: crimson;     /*je créé les ligne du menu*/
+    width: 100%;
+    height: .4vh;
+    border-radius: 5px;
+    transition: all 0.6s ease-in-out;
+    
+}
+.ligne::after {
+
+    content: '';
+    position: absolute;
+    top: 2vh;      /*je place la ligne en haut*/
+    background: crimson;         /*je créé les ligne du menu*/
+    width: 100%;
+    height: .4vh;
+    border-radius: 5px;
+    transition: all 0.6s ease-in-out;
+}
+.container-menu.active .ligne::before {/* quand .container menu à la classe active alors */
+    transform: translateY(2vh) rotate(-45deg);     /*monte de 20px et toourne de 45deg dans le sens inverse des aiguilles d'une montre*/
+}
+.container-menu.active .ligne {
+    background: transparent;
+}
+.container-menu.active .ligne::after {
+    transform: translateY(-2vh) rotate(45deg); /*descend de 20px et toourne de45deg dans le sens des aiguilles d'une montre*/
+}
+
+
+
+.icone {
+    width: 6vh;
+}
+.blob {
+    border:  .2vh white solid;
+    width:13vh;
+    height: 13vh;
+    border-radius: 50%;
+    background: #000000;        /*je créé les blob et leur donne une transiton*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.blob-2 {
+    background: #000000;
+    transition: all 0.2s 0.1s ease-in-out;
+}
+
+.blob-4 {
+    background:  #000000;
+    transition: all 0.2s 0.2s ease-in-out;
+}
+
+.blob-3 {
+    background:  #000000;
+    transition: all 0.2s 0.3s ease-in-out;
+}
+
+.blob-1 {
+    background:  #000000;
+    transition: all 0.2s 0.4s ease-in-out;
+}
+
+
+/* Animation */
+
+.container-menu.active .blob-1 {
+    left: 90%;
+    top:10%;
+}
+
+.container-menu.active .blob-2 {
+    top: 90%;
+    left: 10%;
+}
+
+.container-menu.active .blob-3 {
+    left: 90%;
+    top: 90%;
+}
+
+.container-menu.active .blob-4 {
+    left: 10%;
+    top: 10%;
+}
+
+/*boutton musique*/
+.play_pause_button   {
+    background: rgb(0, 0, 0);
+    display: block;
+    width: 10vh;
+    height: 10vh;
+    border-radius: 50%;
+    position: fixed;            /* je créé le bouton home*/
+    z-index: 15;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: .2vh solid #fff;
+    left: 40px;     /*je le place dans le coin supérieur gauche*/
+    top: 40px;
+    transition: transform 0.2s ease  ;
+
+}
+
+.play_pause_button:hover {
+    transform: scale(1.2); /*quand l'on passe sur le boutton il grandit*/
+}
+
+.play_pause_button img {
+    width: 6.5vh;
+    height: 6.5vh;
+
+}
+
+footer {
+    padding:25px 0px; /* le footer doit rester en bas*/
+    height: fill; 
+    width: 200vh;
+    bottom: 0px; 
+    background-color: #000000;
+    border-top: .2vh dashed white;
+    position: relative;;
+}
+
+
+.credit {
+
+    padding-left: 20vh;
+
+}
+
+
+.void {
+    min-height: 60vh;  /*occupe 60% de la page*/
+}
+
+
+
+/*changement quand on appuie sur le boutton musique*/
+.music {
+	position: relative;
+	
+	background: linear-gradient(0deg, #000, #272727);
+}
+
+.music:before, .music:after {
+	content: '';
+	position: absolute;
+	left: -2px;
+	top: -2px;
+	background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000, #fb0094, 
+		#0000ff, #00ff00,#ffff00, #ff0000);  /*je donne unfond qui change de couleur*/
+	background-size: 400%;
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+	z-index: -1;
+    animation: steam 20s linear infinite;
+    border-radius: 5px;
+}
+
+
+
+@keyframes steam {
+	0% {
+		background-position: 0 0;
+	}
+	50% {
+		background-position: 400% 0; /*je fait l'animation pour le changement de couleurs*/
+	}
+	100% {
+		background-position: 0 0;
+	}
+}
+
+
+.music:after {
+	filter: blur(50px);  /*je met un effet de flou*/
+}
+
+
+.music1 {
+	position: relative;
+    
+	
+}
+
+.music1:before, .music1:after {         /*ici c'est le changtement pour la souris*/
+	content: '';
+	position: absolute;
+	left: -2px;
+	top: -2px;
+	background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000, #fb0094, 
+		#0000ff, #00ff00,#ffff00, #ff0000);
+	background-size: 400%;
+	width: calc(10% + 4px);
+	height: calc(10% + 4px);
+	z-index: -1;
+    animation: steam1 20s linear infinite;
+    border-radius: 50%;
+    top:50%;
+    left: 50%;
+    
+}
+
+@keyframes steam1 {
+	0% {
+		background-position: 0 0;
+	}
+	50% {
+		background-position: 400% 0;
+	}
+	100% {
+		background-position: 0 0;
+	}
+}
+
+.music1:after {
+	filter: blur(50px);
+}
+
+
+.void2 {
+    height: 25vh;
+}
+
+
+
+
+
+  
+  
+  
+  .content h2{ font-size:19px;}
+  
+  
+  /*ici commence le css pour le boutton jouer*/
+  .container-gb {
+    left:50vh;
+    top:170vh;      /*je donne sa position*/
+    position:absolute;
+    text-decoration: none;
+  }
+  
+  .btn-gb .content {
+      padding: 2vh;
+    color:crimson;
+    text-decoration: none;
+    
+  }
+
+  .btn-gb .content h2 {
+    font-size: 2vh;
+    text-decoration: none;
+
+  }
+  .front a{
+      text-decoration: none;
+  }
+  
+  .btn-gb {
+   text-decoration: none;
+    width:25vh;
+    height:9vh;
+    display:block;
+    border:.2vh solid white;
+    border-radius:15px;
+    background:black;
+    text-align:center;
+    transition-property:box-shadow, transform  ;
+    transition-duration:.5s ;
+  }
+  
+.btn-gb:hover {
+    box-shadow: 3px 6px 2px rgb(36,37,38,0.99);    /*je lui donne une ombre*/
+    transform:scale(1.02)
+  }
+.container-gb:hover ~ .parallax-effectc {
+    
+    transform: translateY(-1vh) ;
+}
+.container-gb:hover ~ .parallax-effectc1 {
+    
+    transform: translateY(-1vh) ;
+}
+.container-gb:hover ~ .parallax-effectc2 {
+    
+    transform: translateY(-.5vh) ;
+}
+.container-gb:hover ~ .parallax-effectc3 {
+    
+    transform: translateY(-.2vh) ;
+}
+.container-gb:hover ~ .parallax-effectr1 {
+    
+    transform: translateX(1vh) ;
+}
+.container-gb:hover ~ .parallax-effectr2 {
+    
+    transform: translateX(1vh) ;
+}
+.container-gb:hover ~ .parallax-effectr3 {
+    
+    transform: translateX(1vh) ;
+}
+.container-gb:hover ~ .parallax-effectl1 {
+    
+    transform: translateX(-1vh) ;
+}
+.container-gb:hover ~ .parallax-effectl2 {
+    
+    transform: translateX(-1vh) ;
+}
+.container-gb:hover ~ .parallax-effectl4 {
+    
+    transform: translateX(-1vh) ;
+}
+.container-gb:hover ~ .parallax-effectc6 {
+    
+    transform: translateY(1vh) ;
+}
+/*la fin*/
+  
+/* je mets en place tout les effet parallax*/
+
+/*mise en place de toute les animation des effet parallax*/
+.pr {
+   
+    background:transparent;
+    z-index:1;
+    position: absolute;
+    right:0vh;
+	height: 110vh;
+    width: 45vh;
+    top: 24.6vh;
+}
+.pr:hover ~ .parallax-effectr { /*le ~ sert à désigner les fréres  de p2div_r2_c3(les div qui sont dans la même div)*/
+    
+    transform: translateX(1vh) ;  /*translateX translate la div sur l'axe x, l'axe horizontale*/
+}
+.pr:hover ~ .parallax-effectr4 {
+    
+    transform: translateX(1vh) ;
+}
+.pr:hover ~ .parallax-effectc4 {
+    
+    transform: translateX(1vh) ;
+}
+.pr:hover  .parallax-effectr4 {
+    
+    transform: translateX(1vh) ;
+}
+.pr2 {
+    
+    background:transparent;
+    z-index:1;
+    position: absolute;
+    right:0vh;
+	height: 65vh;
+    width: 49vh;
+    top: 135vh;
+}
+.pr2:hover  .parallax-effectr1 {
+    
+    transform: translateX(1vh) ;
+}
+.pr2:hover ~ .parallax-effectr2 {
+    
+    transform: translateX(1vh) ;
+}
+.pr2:hover ~ .parallax-effectr3 {
+    
+    transform: translateX(1vh) ;
+}
+.pl {
+    
+    background:transparent;
+    z-index:1;
+    position: absolute;
+    left:0vh;
+	height: 110vh;
+    width: 45vh;
+    
+    top: 24.6vh;
+}
+
+.pl:hover .parallax-effectl {
+    transform: translateX(-1vh);
+}
+.pl:hover ~ .parallax-effectl3 {
+    transform: translateX(-1vh);
+}
+.pl:hover ~ .parallax-effectc5 {
+    
+    transform: translateX(-1vh) ;
+}
+.pl:hover ~ .parallax-effectr5 {
+    
+    transform: translateX(-1vh) ;
+}
+.pl2 {
+    
+    background:transparent;
+    z-index:1;
+    position: absolute;
+    left:0vh;
+	height: 65vh;
+    width: 49vh;
+    top: 135vh;
+}
+.pl2:hover  .parallax-effectl1 {
+    
+    transform: translateX(-1vh) ;
+}
+.pl2:hover ~ .parallax-effectl2 {
+    
+    transform: translateX(-1vh) ;
+}
+.pl2:hover ~ .parallax-effectl4 {
+    
+    transform: translateX(-1vh) ;
+}
+
+.pc  {
+    
+    background:transparent;
+    z-index:1;
+    position: absolute;
+	height: 25vh;
+    width: 100%;
+    top: 115vh;
+}
+.pc:hover ~ .parallax-effectc {
+    
+    transform: translateY(1vh) ;
+}
+.pc:hover ~ .parallax-effectc1 {
+    
+    transform: translateY(1vh) ;
+}
+.pc:hover ~ .parallax-effectc2 {
+    
+    transform: translateY(.5vh) ;
+}
+.pc:hover ~ .parallax-effectc3 {
+    
+    transform: translateY(.2vh) ;
+}
+.pc2 {
+    
+    background:transparent;
+    z-index:1;
+    position: absolute;
+	height: 30vh;
+    width: 100%;
+    top: 140vh;
+}
+.pc2:hover ~ .parallax-effectc {
+    
+    transform: translateY(-.3vh) ;
+}
+.pc2:hover ~ .parallax-effectc1 {
+    
+    transform: translateY(-.5vh) ;
+}
+.pc2:hover ~ .parallax-effectc2 {
+    
+    transform: translateY(-1vh) ;
+}
+.pc2:hover ~ .parallax-effectc3 {
+    
+    transform: translateY(-1vh) ;
+}
+.pc3 {
+    
+    background:transparent;
+    z-index:1;
+    position: absolute;
+	height: 22vh;
+    width: 100%;
+    top: 179vh;
+}
+.pc3:hover ~ .parallax-effectc6 {
+    
+    transform: translateY(1vh) ;
+}
+
+
+.p2div_r_c {  /*c'est la zone pour activer deux transition avec  pl et pc*/
+    
+    background:transparent;
+    z-index:1;
+    position: absolute;
+	height: 22vh;
+    width: 45vh;
+    top: 115vh;
+    right: 0;
+    z-index: 2;
+}
+
+.p2div_r_c:hover ~ .parallax-effectr {
+    
+    transform: translateX(1vh) ;
+}
+.p2div_r_c:hover ~ .parallax-effectr4 {
+    
+    transform: translateX(1vh) ;
+}
+.p2div_r_c:hover ~ .parallax-effectc4 {
+    
+    transform: translateX(1vh) ;
+}
+.p2div_r_c:hover ~ .pr .parallax-effectr4 {
+    
+    transform: translateX(1vh) ;
+}
+
+.p2div_r_c:hover ~ .parallax-effectc {
+    
+    transform: translateY(1vh) ;
+}
+.p2div_r_c:hover ~ .parallax-effectc1 {
+    
+    transform: translateY(1vh) ;
+}
+.p2div_r_c:hover ~ .parallax-effectc2 {
+    
+    transform: translateY(.5vh) ;
+}
+.p2div_r_c:hover ~ .parallax-effectc3 {  /*benjamin roget*/
+    
+    transform: translateY(.2vh) ;
+}
+.p2div_l_c {  /*c'est la zone pour activer deux transition avec  pr et pc*/
+    
+    background:transparent;
+    z-index:1;
+    position: absolute;
+	height: 22vh;
+    width: 45vh;
+    top: 115vh;
+    left: 0;
+    z-index: 2;
+}
+.p2div_l_c:hover ~ .parallax-effectc {
+    
+    transform: translateY(1vh) ;
+}
+.p2div_l_c:hover ~ .parallax-effectc1 {
+    
+    transform: translateY(1vh) ;
+}
+.p2div_l_c:hover ~ .parallax-effectc2 {
+    
+    transform: translateY(.5vh) ;
+}
+.p2div_l_c:hover ~ .parallax-effectc3 {
+    
+    transform: translateY(.2vh) ;
+}
+.p2div_l_c:hover ~ .pl .parallax-effectl {
+    transform: translateX(-1vh);
+}
+.p2div_l_c:hover ~ .parallax-effectl3 {
+    transform: translateX(-1vh);
+}
+.p2div_l_c:hover ~ .parallax-effectc5 {
+    
+    transform: translateX(-1vh) ;
+}
+.p2div_l_c:hover ~ .parallax-effectr5 {
+    
+    transform: translateX(-1vh) ;
+}
+.p2div_l2_c {  /*c'est la zone pour activer deux transition avec  pl2 et pc*/
+    
+    background:transparent;
+    z-index:1;
+    position: absolute;
+	height: 35vh;
+    width: 49vh;
+    top: 135vh;
+    left: 0;
+    z-index: 2;
+}
+
+.p2div_l2_c:hover ~ .parallax-effectc {
+    
+    transform: translateY(-.3vh) ;
+}
+.p2div_l2_c:hover ~ .parallax-effectc1 {
+    
+    transform: translateY(-.5vh) ;
+}
+.p2div_l2_c:hover ~ .parallax-effectc2 {
+    
+    transform: translateY(-1vh) ;
+}
+.p2div_l2_c:hover ~ .parallax-effectc3 {
+    
+    transform: translateY(-1vh) ;
+}
+.p2div_l2_c:hover ~ .pl2 .parallax-effectl1 {
+    
+    transform: translateX(-1vh) ;
+}
+.p2div_l2_c:hover ~ .parallax-effectl2 {
+    
+    transform: translateX(-1vh) ;
+}
+.p2div_l2_c:hover ~ .parallax-effectl4 {
+    
+    transform: translateX(-1vh) ;
+}
+
+.p2div_r2_c {  /*c'est la zone pour activer deux transition avec  pr2 et pc*/
+    
+    background:transparent;
+    z-index:1;
+    position: absolute;
+	height: 35vh;
+    width: 49vh;
+    top: 135vh;
+    right: 0;
+    z-index: 2;
+}
+
+.p2div_r2_c:hover ~ .parallax-effectc {
+    
+    transform: translateY(-.3vh) ;
+}
+.p2div_r2_c:hover ~ .parallax-effectc1 {
+    
+    transform: translateY(-.5vh) ;
+}
+.p2div_r2_c:hover ~ .parallax-effectc2 {
+    
+    transform: translateY(-1vh) ;
+}
+.p2div_r2_c:hover ~ .parallax-effectc3 {
+    
+    transform: translateY(-1vh) ;
+}
+.p2div_r2_c:hover ~ .pr2 .parallax-effectr1 {
+    
+    transform: translateX(1vh) ;
+}
+.p2div_r2_c:hover ~ .parallax-effectr2 {
+    
+    transform: translateX(1vh) ;
+}
+.p2div_r2_c:hover ~ .parallax-effectr3 {
+    
+    transform: translateX(1vh) ;
+}
+
+.p2div_l2_c3 {
+    
+    background:transparent;
+    z-index:1;
+    position: absolute;
+	height: 21vh;
+    width: 49vh;
+    top: 179vh;
+    left: 0;
+    z-index: 2;
+}
+
+.p2div_l2_c3:hover ~ .parallax-effectc6 {
+    
+    transform: translateY(1vh) ;
+}
+.p2div_l2_c3:hover ~ .pl2 .parallax-effectl1 {
+    
+    transform: translateX(-1vh) ;
+}
+.p2div_l2_c3:hover ~ .parallax-effectl2 {
+    
+    transform: translateX(-1vh) ;
+}
+.p2div_l2_c3:hover ~ .parallax-effectl4 {
+    
+    transform: translateX(-1vh) ;
+}
+
+.p2div_r2_c3 {
+    
+    background:transparent;
+    z-index:1;
+    position: absolute;
+	height: 21vh;
+    width: 49vh;
+    top: 179vh;
+    right: 0;
+    z-index: 2;
+}
+.p2div_r2_c3:hover ~ .parallax-effectc6 {  
+    
+    transform: translateY(1vh) ;
+}
+.p2div_r2_c3:hover ~ .pr2 .parallax-effectr1 {
+    
+    transform: translateX(1vh) ;
+}
+.p2div_r2_c3:hover ~ .parallax-effectr2 {
+    
+    transform: translateX(1vh) ;
+}
+.p2div_r2_c3:hover ~ .parallax-effectr3 {
+    
+    transform: translateX(1vh) ;
+}
+
+
+/*positionnement de toute les div parallax*/
+.parallax-effectr {
+    
+    position:absolute;  /*sa posotion sera toujours la même quoi qu'il arrive*/
+     /*je le décale de la droite  de 10vh (vision de la page sur l'écran)*/
+      /*je le décale du haut  de 30vh (vision de la page sur l'écran)*/
+    
+    background-image: url("../image/wallpaperflare.com_wallpaper.jpg");
+    height:100vh;   /* je donne la taille de la div*/
+    width:15vh;
+    right: 10vh;
+    top: 30vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-width: 100%;
+    border: .4vh solid black;
+    transition: transform 1s ease-in-out 0.1s; 
+    
+            }
+.parallax-effectr1 {
+    
+position:absolute;
+right:5vh;
+
+                
+background-image: url("../image/wallpaperflare.com_wallpaper.jpg");
+height:65vh;
+width:10vh;
+background-attachment: fixed;
+ background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+max-width: 100%;
+border: .4vh solid black;
+transition: transform 1s ease-in-out 0.6s;
+                
+    }
+
+.parallax-effectr2 {
+    
+    position:absolute;
+    right:17vh;
+    top: 160vh;
+                            
+    background-image: url("../image/wallpaperflare.com_wallpaper.jpg");
+    height:35vh;
+    width:3vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-width: 100%;
+    border: .4vh solid black;
+    transition: transform 1s ease-in-out 0.3s;
+                            
+    }
+.parallax-effectr3 {
+    position:absolute;
+    right:33vh;
+    top: 169.5vh;
+                            
+    background-image: url("../image/wallpaperflare.com_wallpaper.jpg");
+    height:10vh;
+    width:3vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-width: 100%;
+    border: .4vh solid black;
+    transition: transform 1s ease-in-out ;
+}
+
+.parallax-effectr4 {
+    position:absolute;
+    right:25.5vh;
+    top: 35.5vh;
+                            
+    background-image: url("../image/wallpaperflare.com_wallpaper.jpg");
+    height:76vh;
+    width:3vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-width: 100%;
+    border: .4vh solid black;
+    transition: transform 0.9s ease-in-out;
+}
+.parallax-effectr5 {
+    position:absolute;
+    right:25.5vh;
+    top: 35.5vh;
+                            
+    background-image: url("../image/wallpaperflare.com_wallpaper.jpg");
+    height:76vh;
+    width:3vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-width: 100%;
+    border: .4vh solid black;
+    transition: transform 0.9s ease-in-out;
+}
+.parallax-effectl {
+    
+     position:absolute;
+     left:10vh;
+     top: 5.4vh;
+     background-image: url("../image/wallpaperflare.com_wallpaper.jpg");
+     height:100vh;
+    width:15vh;
+    background-attachment: fixed;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: .4vh solid black;
+    transition: transform 1s ease-in-out;
+    
+    }
+    .parallax-effectl1 {
+    
+        position:absolute;
+        left:5vh;
+        
+       
+        background-image: url("../image/wallpaperflare.com_wallpaper.jpg");
+        height:65vh;
+       width:10vh;
+       background-attachment: fixed;
+       background-position: right;
+       background-repeat: no-repeat;
+       background-size: cover;
+       border: .4vh solid black;
+       transition: transform 1s ease-in-out 0.6s;
+       
+                           }
+    .parallax-effectl2 {
+    
+    position:absolute;
+    left:17vh;
+    top: 160vh;
+                           
+    background-image: url("../image/wallpaperflare.com_wallpaper.jpg");
+    height:35vh;
+    width:3vh;
+    background-attachment: fixed;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: .4vh solid black;
+    transition: transform 1s ease-in-out 0.3s;
+                           
+   }
+.parallax-effectl3 {
+    position:absolute;
+    left:25.5vh;
+    top: 60vh;
+                            
+    background-image: url("../image/wallpaperflare.com_wallpaper.jpg");
+    height:76vh;
+    width:3vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-width: 100%;
+    border: .4vh solid black;
+    transition: transform 1s ease-in-out 0.1s;
+}
+.parallax-effectl4 {
+    position:absolute;
+    right:33vh;
+    top: 169.5vh;
+                            
+    background-image: url("../image/wallpaperflare.com_wallpaper.jpg");
+    height:10vh;
+    width:3vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-width: 100%;
+    border: .4vh solid black;
+    transition: transform 1s ease-in-out ;
+}
+
+.parallax-effectc {
+    
+    position:absolute;
+    left:26%;
+    top: 120vh;
+    
+    
+    background-image: url("../image/wallpaperflare.com_wallpaper.jpg");
+    height:15vh;
+    width:60vh;
+    background-attachment: fixed;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: .4vh solid black;
+    transition: transform 1s ease-in-out;
+                                                
+   
+    }
+    .parallax-effectc1 {
+    
+        position:absolute;
+        left:14%;
+        top: 136.5vh;
+        background-image: url("../image/wallpaperflare.com_wallpaper.jpg");
+        height:15vh;
+        width:90vh;
+        background-attachment: fixed;
+        background-position: right;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border: .4vh solid black;
+        transition: transform 1s ease-in-out .2s;
+                                                    
+       
+        }
+.parallax-effectc2 {
+    position:absolute;
+    left:14%;
+    top: 153vh;
+    background-image: url("../image/wallpaperflare.com_wallpaper.jpg");
+    height:5vh;
+    width:90vh;
+    background-attachment: fixed;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: .4vh solid black;  
+    transition: transform 1s ease-in-out .5s; 
+}
+.parallax-effectc3 {
+    position:absolute;
+    left:32.5vh;
+    top: 159vh;
+    background-image: url("../image/wallpaperflare.com_wallpaper.jpg");
+    height:3vh;
+    width:60vh;
+    background-attachment: fixed;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: .4vh solid black;   
+    transition: transform 1s ease-in-out .8s; 
+}
+.parallax-effectc4 {
+    position:absolute;
+    left:6vh;
+    top: 131vh;
+    background-image: url("../image/wallpaperflare.com_wallpaper.jpg");
+    height:3.5vh;
+    width:18vh;
+    background-attachment: fixed;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: .4vh solid black;  
+    transition: transform 1s ease-in-out 0.4s;  
+}
+.parallax-effectc5 {
+    position:absolute;
+    left:6vh;
+    top: 131vh;
+    background-image: url("../image/wallpaperflare.com_wallpaper.jpg");
+    height:3.5vh;
+    width:18vh;
+    background-attachment: fixed;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: .4vh solid black;  
+    transition: transform 1s ease-in-out 0.4s;  
+}
+.parallax-effectc6 {
+    position:absolute;
+    left:32.5vh;
+    top: 159vh;
+    background-image: url("../image/wallpaperflare.com_wallpaper.jpg");
+    height:3vh;
+    width:60vh;
+    background-attachment: fixed;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: .4vh solid black;   
+    transition: transform 1s ease-in-out ; 
+}
+
+
+    .game {
+    width: 150vh;
+    margin: 0 auto ;
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    user-select: none;
+    background: rgb(85, 85, 85,0.95);
+    cursor: none;
+    overflow-x: hidden;
+    border-radius: 5px;
+    }
+header {
+margin: 0 auto;
+    width: 1436px;
+    border: .2vh solid black;
+    background: black
+    }
+.game h1 {
+background: url("../image/goblinset2.png") 0% 340px;
+     padding: 1.2rem 0;
+margin: 0;
+    color: rgb(255, 0, 0);
+                                                    
+    }
+.score-container {
+display: flex;
+    justify-content: space-between;
+    padding: 8px 6px;
+    background: #ff0000;
+                                                    
+    }
+                                                  
+.game canvas {
+ border: 3px solid black;
+        }
+
+
+.home_button {
+
+     background: rgb(0, 0, 0);
+     display: block;
+    width: 10vh;
+    height: 10vh;
+     border-radius: 50%;
+    position: fixed;            /* je créé le bouton home*/
+    z-index: 15;
+    display: flex;
+     justify-content: center;
+    align-items: center;
+    border: .2vh solid #fff;
+    left: 40px;     /*je le place dans le coin supérieur gauche*/
+     top: 40px;
+    transition: transform 0.2s ease  ;
+        }
+        
+.icone img {
+            
+    width: 6.5vh; /*je donne à l'image une taille de 50px*/
+            
+            
+    }
+        
+.home_button:hover {
+    transform:  scale(1.1);
+    transition: transform 0.2s ease  ; /* je fais une transition le bouton home devient 1.2* plus grand quand on passe dessus*/
+     }
+                                                  

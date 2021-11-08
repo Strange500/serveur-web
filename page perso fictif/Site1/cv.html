@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <link type="text/css" href="css/csstest.css" rel="stylesheet"> <!--on fait le lien avec la feuille de style-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" type="image/x-icon" href="image/icone/casque-romain.svg" /> <!--je mets une image a l'entête de ma page-->
+        <title>CV</title>
+    </head>
+    <body>
+        <div class="cursor default"></div> <!-- ici c'est la div lier aux code css et js elle suivra la souris dans ses mouvements dans la page-->
+        <audio id="audiotag1" src="son/goblin-slayer-ost-maintheme.mp3" preload="auto"></audio>
+        <audio id="pop" src="son/zapsplat_cartoon_pop_mouth_014_46677.mp3" preload="auto"></audio>
+		<audio id="pop1" src="son/zapsplat_cartoon_pop_mouth_015_46678.mp3" preload="auto"></audio>
+        <a href="javascript:play_single_sound();"><div class="play_pause_button"><img src="image/icone/pause.svg" alt=""></div></a>
+    
+        <br>
+
+    
+    
+        <!--je créé une div qui va contenir un menu -->
+        <div class="container-corner">
+            <div class="circle-menu"> <!--caque lien sera une option du menu-->
+                <a href="skills.html" class="links-circle">
+                    <img src="image/icone/epees.svg">
+                </a>
+                <a href="story.html" class="links-circle">
+                    <img src="image/icone/feu-de-camp.svg">
+                </a>
+                <a href="gallerie.html" class="links-circle">
+                    <img src="image/icone/livre.svg">
+                </a>
+            </div>
+           <!--ici je créé les div qui seront les ligne dans le bouton du menu-->
+            <a>
+                <div class="btn-circle">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </a>
+        </div>
+    <!--je créé une div pour retourner à index.html-->
+            <div class="home_button">
+                <a class="icone" href="index.html"> <img src="image/icone/home.svg" alt="home"> </a>
+    
+            </div>
+    <br>
+    <div class="front"> <!--la class front sertà la mise en page-->
+        <br>
+        <h1>Qui est t-il ?</h1>
+        <br>
+        <div class="contenu">
+            <div >
+                <div class="profile">
+                    <br>
+                    <div class="pic"></div> <!--je fais la liste de ces carctéristique pour son cv-->
+                    <div class="descrip">
+                        <div class="divtext">
+                            <p class="p" ><strong>Pseudo:<br></strong>Le Goblin Slayer ou le Crève-goblin</p>
+                        </div>
+                        <div class="divtext">
+                            <p class="p1"> <strong>Nom et prenom:<br></strong> Inconnu</p>
+                        </div>
+                        <div class="divtext">
+                            <p class="p2"><strong>Compétence: <br></strong>Spécialiste de la traque de gobelin</p>
+                        </div>
+                        <div class="divtext">
+                            <p class="p3"> <strong>ieu de naissance: <br></strong> Inconnu</p>
+                        </div>
+                        <div class="divtext">
+                            <p class="p4"><strong>Age:<br></age:br></strong> Inconnu</p>
+                        </div>
+                        <div class="divtext">
+                            <p class="p5"><strong>Sexe: <br></strong> Masculin</p>
+                        </div>
+                        <div class="divtext">
+                            <p class="p6" ><strong> Lieu de résidence: <br></strong> Une ferme non loin d'une ville.</p>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        </div>
+        <div class="void"></div> <!--le void sert à laisser du vide-->
+        </div>
+
+    <footer class="end">    <!--ici je créé le pied de page-->
+
+        <p class="credit"> sources:</p> 
+        <ul>
+            <div class="credit"> 
+                <li><a href="https://www.pinterest.fr/search/pins/?q=Goblin%20slayer%20gif&rs=rs&eq=&etslf=1839&term_meta[]=Goblin%7Crecentsearch%7C2&term_meta[]=slayer%7Crecentsearch%7C2&term_meta[]=gif%7Crecentsearch%7C2"> Pinterest</a>
+                </div></li>
+            <div class="credit">
+                <li><a href="https://imgur.com/gallery/x4HIU0F">imgur</a>
+            </div></li>
+    
+        </ul>
+    </footer>
+
+    <script src="js/cv.js"></script>
+</body>
+</html>

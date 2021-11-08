@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link type="text/css" href="css/csstest.css" rel="stylesheet"> <!--on fait le lien avec la feuille de style-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="image/icone/feu-de-camp.svg" /> <!--je mets une image a l'entête de ma page-->
+    <title>Histoire</title>
+</head>
+<body>
+    <div class="cursor default"></div> <!-- ici c'est la div lier aux code css et js elle suivra la souris dans ses mouvements dans la page-->
+    <audio id="audiotag1" src="son/goblin-slayer-ost-maintheme.mp3" preload="auto"></audio>
+    <audio id="pop" src="son/zapsplat_cartoon_pop_mouth_014_46677.mp3" preload="auto"></audio>
+	<audio id="pop1" src="son/zapsplat_cartoon_pop_mouth_015_46678.mp3" preload="auto"></audio>
+    <a href="javascript:play_single_sound();"><div class="play_pause_button"><img src="image/icone/pause.svg" alt=""></div></a>
+    
+    <!--je créé la div pour mon menu-->
+    <div class="container-corner">  
+        <div class="circle-menu">   <!-- chaque lien sera une image cliquable-->
+            <a href="skills.html" class="links-circle">
+                <img src="image/icone/epees.svg">
+            </a>
+            <a href="cv.html" class="links-circle">
+                <img src="image/icone/casque-romain.svg">
+            </a>
+            <a href="gallerie.html" class="links-circle">
+                <img src="image/icone/livre.svg">
+            </a>
+        </div>
+        <!--je créé une div pour un bouton retour à index.html-->
+        <div class="home_button">
+            <a class="icone" href="index.html"> <img src="image/icone/home.svg" alt="home"> </a>
+    
+        </div>
+        <!--je créé une div pour contenir les ligne du menu-->
+        <a><div class="btn-circle">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div></a>
+    </div>
+    <br>
+    <div class="front">
+        <br>
+        <h1>Son Aventure</h1>
+        <br>
+        <div class="contenu">   <!--ici c'est juste le texte de la page-->
+            <div >
+                 <div class=" text">  <p> 
+                    Aventurier (bien qu'il s'en défende) de 
+                    rang argent sans visage, laconique et expérimenté,
+                    il ne se préoccupe que de chasser les Gobelins ou « Petits démons » au point que la Guilde
+                    lui a attribué un titre officieux de spécialiste, en raison de la quantité impressionnante 
+                    de Gobelins qu'il a tués ainsi que de son expertise sur leurs habitudes et biologie. 
+                    Son équipement passe pour inférieur à son rang, ce qui 
+                    l'amène souvent à être considéré comme n'étant pas professionnel,
+                    mais ce choix s'explique autant par son orientation que par la fréquence
+                    à laquelle ses armes et son armure sont endommagées . </p>
+                </div >
+                <div class="text text-main"><p>
+                
+                    le Shaman Nain estime lui-même par ailleurs que son équipement est 
+                    parfaitement adapté à la traque des Gobelins, jusque dans leurs repaires
+                    sombres et étroits. Il est révélé qu'il possède également des anneaux magiques permettant de respirer sous l'eau.
+                    Son style de combat repose sur une approche pragmatique comme la mise en place 
+                    de pièges, le retournement d'arme contre son utilisateur, et savoir profiter de
+                    tout avantage qui se présente. Il fait même preuve d'imagination et d'ingéniosité 
+                    en détournant un sort de protection afin de tuer tous les Gobelins ainsi faits prisonniers
+                    d'une forteresse elfique à laquelle il a mis le feu.</p>
+                </div>
+        </div>
+            <!--je différencie les différente parties du texte pour faciliter la mise en page-->
+            <div class="text-bottom">
+                <br>
+                <h1>Son histoire</h1>
+                <br>
+                <!--je créé une div pour une image -->
+                <div class="circle"></div>
+
+                
+                    <p>
+            
+                        Sa caractéristique principale est sa grande haine
+                        des Gobelins qui conditionne chacune de ses actions : elle trouve son
+                        origine dans son enfance quand sa sœur, seule famille qui lui restait, ainsi que
+                        leur village natal furent massacrés par des Gobelins, le poussant à dédier sa vie
+                        à une sanglante vengeance. Devenu orphelin, il fut recueilli par le Maître, un voyageur
+                        et aventurier Rhea qui le forma à tuer les Gobelins. Cinq années s'écoulèrent avant qu'il rejoigne 
+                        la Guilde des Aventuriers : il est depuis lors hébergé dans leur village par l'Oncle de la Vachère, son 
+                        amie d'enfance, et utilise ses revenus pour payer son séjour.
+                        Bien qu'il soit ouvert à l'idée qu'il puisse vraiment y avoir de bons Gobelins quelque part dans le monde, jusqu'à 
+                        preuve du contraire il les considère tous mauvais, à cause de la mort et de la destruction qu'ils provoquent, et se montre sans pitié envers 
+                        eux et leurs progénitures, qui même enfants ne sont pas inoffensives. Selon ses dires, « les seuls bons Gobelins sont ceux qui ne sortent jamais de leur trou ».</p>
+                </div>
+                </div>
+        
+        
+
+
+
+
+
+            <div class="wall"></div><!--je créé une div pour une image -->
+            <div class="void"></div><!--je laisse du vide-->
+        </div>
+
+    
+
+    <footer class="end">    <!--je fais le pied de page-->
+        <!--je fais la liste des source-->
+        <div class="credit">Source</div>
+        <ul>
+            <div class="credit"><li><a href="https://fr.wikipedia.org/wiki/Goblin_Slayer"> Wikipédia</a></li></div>
+        </ul>
+    </footer>
+
+
+    <script src="js/story.js"></script>
+</body>
+</html>
